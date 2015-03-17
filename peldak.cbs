@@ -1,0 +1,59 @@
+%% Ez itt komment %%
+
+%% egér mozgatása %%
+move 12 77
+
+%% kattintás bal egérrel 1x %%
+click left 1
+
+%% vagy kattintás bal egérrel 1x röviden %%
+click l 1
+
+%% kattintás jobb egérrel 1x %%
+click right 1
+
+%% szöveg gépeltetése %%
+type hello
+
+%% várakoztatás 2mp-ig %%
+delay 2000
+
+%% enter ütése %%
+hit enter
+
+%% ctrl + c / ctrl + v %%
+%% tartom a controlt %%
+hit_begin control
+hit c
+%% elengedem %%
+hit_end control
+
+hit_begin control
+hit v
+hit_end control
+
+%% új változó %%
+set alma = 5
+set korte = 8
+
+%% mûveletek %%
+set banan = 0
+add banan korte
+add banan alma
+sub korte 1
+mul banan 3
+div banan 3
+
+%% ciklus %%
+for i = 1 to 4
+add banan 3
+end
+
+set valami = 3
+set x = 5
+set y = 15
+for i = 1 to valami
+move x y
+add x + 100
+add y + x
+end

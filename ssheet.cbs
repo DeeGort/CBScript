@@ -1,0 +1,115 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              Sprite sheet cutting script                   %%
+%%                By DeeGort 2014 ver 1.0                     %%
+%%      This is script for processing spitesheets             %%
+%%              You must use 18.2 zoom                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Define tab positions %%
+set spriteSheetFilePosX = 200
+set spriteSheetFilePosY = 70
+set productFilePosX = 290
+set productFilePosY = 70
+
+%% Define layer positions %%
+set gridLayerPosX = 1820
+set gridLayerPosY = 170
+set spriteLayerPosX = 1820
+set spriteLayerPosY = 210
+
+set fileNumber = 1
+set spriteOffsetX = 110
+set spriteOffsetY = 160
+set spriteposX = 620
+set spriteposY = 280
+set spritedefaultposX = 620
+set spritedefaultposY = 280
+set row = 4
+set col = 6
+
+for i = 1 to row
+for j = 1 to col
+
+%% Select sprite sheet file %%
+move spriteSheetFilePosX spriteSheetFilePosY
+click left 1
+delay 50
+
+%% Select Fuzzy Selecto tool %%
+hit u
+
+%% Select grid layer %%
+move gridLayerPosX gridLayerPosY
+click left 1
+delay 50
+
+%% Select frame %%
+move spriteposX spriteposY
+click left 1
+delay 50
+
+%% Select sprite layer %%
+move spriteLayerPosX spriteLayerPosY
+click left 1
+delay 50
+
+%% Hit ctrl + c %%
+hit_begin control
+hit c
+hit_end control
+delay 50
+
+%% Switch to product file %%
+move productFilePosX  productFilePosY
+click left 1
+delay 50
+
+%% Delete previous picture %%
+hit delete
+delay 50
+
+%% Paste frame %%
+hit_begin control
+hit v
+hit_end control
+delay 50
+
+%% Save frame %%
+hit_begin control
+hit_begin shift
+hit e
+hit_end shift
+hit_end control
+
+%% Type file name %%
+delay 200
+type leg_back
+delay 100
+type fileNumber
+
+%% Save file %%
+delay 100
+hit enter
+delay 100
+hit enter
+delay 500
+hit enter
+delay 500
+
+%% Increase fileNumber %%
+add fileNumber 1
+
+%% Next X sprite %%
+add spriteposX spriteOffsetX
+delay 50
+
+%% End of column (end of for) %%
+end
+
+%% Next Y sprite %%
+set spriteposX = spritedefaultposX
+add spriteposY spriteOffsetY
+delay 50
+
+%% End of row (end of for) %%
+end
